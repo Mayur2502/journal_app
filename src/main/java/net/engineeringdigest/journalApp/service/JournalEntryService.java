@@ -1,8 +1,8 @@
-package net.engineeringdigest.journalApp.service;
+package com.myprojects.journalApp.service;
 
-import net.engineeringdigest.journalApp.entity.JournalEntry;
-import net.engineeringdigest.journalApp.entity.User;
-import net.engineeringdigest.journalApp.repository.JournalEntryRepository;
+import com.myprojects.journalApp.repository.JournalEntryRepository;
+import com.myprojects.journalApp.entity.JournalEntry;
+import com.myprojects.journalApp.entity.User;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,6 +21,8 @@ public class JournalEntryService {
     @Autowired
     private UserService userService;
 
+
+
     @Transactional
     public void saveEntry(JournalEntry journalEntry, String userName) {
         try {
@@ -31,6 +33,7 @@ public class JournalEntryService {
             user.getJournalEntries().add(saved);
             userService.saveNewUser(user);
         }catch (Exception e){
+
             System.out.println(e);
             throw new RuntimeException("An error occur while saving the entry",e);
         }
