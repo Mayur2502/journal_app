@@ -1,7 +1,7 @@
-package com.myprojects.journalApp.service;
+package net.engineeringdigest.journalApp.service;
 
-import com.myprojects.journalApp.repository.UserRepository;
-import com.myprojects.journalApp.entity.User;
+import net.engineeringdigest.journalApp.entity.User;
+import net.engineeringdigest.journalApp.repository.UserRepository;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
