@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+
 @Service
 public class UserService {
 
@@ -26,10 +26,16 @@ public class UserService {
 
     private static final Logger logger= LoggerFactory.getLogger(UserService.class);
 
-    public void saveNewUser(User user) {
+    public boolean saveNewUser(User user) {
+        try {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Arrays.asList("USER"));
         userRepository.save(user);
+        return true;
+
+        }catch (Exception e){
+            return false;
+        }
     }
     public void saveAdmin(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
