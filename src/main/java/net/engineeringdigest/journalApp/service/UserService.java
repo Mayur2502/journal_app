@@ -26,6 +26,10 @@ public class UserService {
 
     private static final Logger logger= LoggerFactory.getLogger(UserService.class);
 
+
+    public long getTotalUsers() {
+        return userRepository.count();
+    }
     public boolean saveNewUser(User user) {
         try {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
